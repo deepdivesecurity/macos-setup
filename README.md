@@ -24,7 +24,7 @@ This MacOS setup project is to provide a generalized, standard, repeatable way o
 
 ## Roadmap
 
-- [ ] Roadmap item
+- [ ] Add an open box Mac report that checks for issues like number of cycles, battery level, etc.
 
 See the [open issues](https://github.com/deepdivesecurity/macos-setup/issues) for a complete list of proposed features and known issues.
 
