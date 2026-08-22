@@ -32,4 +32,4 @@ See the [open issues](https://github.com/deepdivesecurity/macos-setup/issues) fo
 - [Homebrew](https://brew.sh/)
 
 ## License
-See `LICENSE.txt` for more information.
+All Rights Reserved.
