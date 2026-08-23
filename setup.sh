@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOTAL_STEPS=2
+TOTAL_STEPS=3
 CURRENT_STEP=0
 START_TIME=$(date +%s)
 
@@ -59,7 +59,7 @@ run_step() {
 
         # Get number of seconds command took to complete
         local elapsed=$((step_end - step_start))
-        echo -e "\r   ${GREEN} OK${RESET} (${elapsed}s)"
+        echo -e "\r   ${GREEN}✓ OK${RESET} (${elapsed}s)"
 
         # Show overall progress in progress bar
         progress_bar "$CURRENT_STEP" "$TOTAL_STEPS"
@@ -103,8 +103,14 @@ configure_finder() {
     defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
     defaults write com.apple.finder AppleShowAllFiles -bool "true"
     defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
-    killall Finder
-    
+    return 0
+}
+
+# ----------------------------------------
+# Apply Changes
+# ----------------------------------------
+apply_changes() {
+    killall Finder 2>/dev/null || true
     return 0
 }
 
@@ -125,6 +131,7 @@ echo ""
 # ----------------------------------------
 run_step "Configure Finder" configure_finder
 run_step "Configure Brew" configure_brew
+run_step "Apply Changes" apply_changes 
 
 # ----------------------------------------
 # Complete
