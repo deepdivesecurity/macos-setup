@@ -13,9 +13,9 @@ TOTAL_SUBSTEPS=2
 # Finder
 # ----------------------------------------
 configure_finder() {
-    defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
-    defaults write com.apple.finder AppleShowAllFiles -bool "true"
-    defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+    defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" || return 1
+    defaults write com.apple.finder AppleShowAllFiles -bool "true" || return 1
+    defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" || return 1
 
     return 0
 }
