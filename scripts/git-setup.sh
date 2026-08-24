@@ -9,17 +9,31 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 TOTAL_SUBSTEPS=2
 
-confirm_env_available() {
-    if [[ -f "$PROJECT_DIR/.env" ]]; then
-        set -o allexport
-        source "$PROJECT_DIR/.env"
-        set +o allexport
-    else
+read_env() {
+    ENV_FILE="$PROJECT_DIR/.env"
+
+    # Check if .env file exists
+    if [[ ! -f "$ENV_FILE" ]]; then
         return 1
     fi
+
+    while IFS= read -r line || [ -n "$line" ]; do
+        # Skip lines that are empty or start with a comment (#)
+        [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+
+        # Strip leading/trailing whitespaces if necessary
+        line=$(echo "$line" | xargs)
+
+        # Validate that the line matches a standard KEY=VALUE format
+        if [[ "$line" =~ ^[a-zA-Z_][a-zA-Z0-9_]*= ]]; then
+            export "$line"
+        fi
+    done < "$ENV_FILE"
+
+    return 0
 }
 
-confirm_env_available
+read_env
 
 # ----------------------------------------
 # Check Git
@@ -38,7 +52,7 @@ confirm_git_installed() {
 configure_git_username() {
     confirm_git_installed || return 1
 
-    if [ -z "$(git config --global user.name)" ]; then
+    if [ ! -z "$(git config --global user.name)" ]; then
         git config --global user.name "$GIT_NAME"
     fi
 
@@ -51,7 +65,7 @@ configure_git_username() {
 configure_git_email() {
     confirm_git_installed || return 1
 
-    if [ -z "$(git config --global user.email)" ]; then
+    if [ ! -z "$(git config --global user.email)" ]; then
         git config --global user.email "$GIT_EMAIL"
     fi
 
