@@ -13,9 +13,14 @@ TOTAL_SUBSTEPS=2
 # Install Brew
 # ----------------------------------------
 install_brew() {
-    # Check if Homebrew is installed and install it if it's not
+    # Check if Homebrew is installed and if not, install it
     if ! command -v brew >/dev/null 2>&1; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    # Validate that Homebrew was installed
+    if ! command -v brew >/dev/null 2>&1; then
+        return 1
     fi
 
     return 0
@@ -29,9 +34,9 @@ install_brew_apps() {
 
     if [ ! -f "$BREWFILE_PATH" ]; then
         echo "Error: File '$BREWFILE_PATH' does not exist."
-        exit 1
+        return 1
     else
-        brew bundle --file=$BREWFILE_PATH
+        brew bundle --file=$BREWFILE_PATH || return 1
     fi
 
     return 0
