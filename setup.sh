@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/scripts/progress.sh"
 
-TOTAL_STEPS=1
+TOTAL_STEPS=3
 CURRENT_STEP=0
 
 START_TIME=$(date +%s)
@@ -44,6 +44,7 @@ run_step() {
         echo -e "\r   ${GREEN}✓ OK${RESET} (${elapsed}s)"
 
         # Show overall progress in progress bar
+        echo "Overall Progress: "
         progress_bar "$CURRENT_STEP" "$TOTAL_STEPS"
         echo
     else
@@ -71,7 +72,7 @@ echo ""
 # ----------------------------------------
 run_step "Configuring MacOS" "macos-setup.sh"
 run_step "Configuring Brew" "brew-setup.sh"
-#run_step "Configuring Git" "git-setup.sh"
+run_step "Configuring Git" "git-setup.sh"
 
 # ----------------------------------------
 # Complete

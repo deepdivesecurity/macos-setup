@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Abort on non-zero exitstatus; Abort on unbound variable; Don't hide errors within pipes
+set -euo pipefail
+
 # ----------------------------------------
 # Colors
 # ----------------------------------------
