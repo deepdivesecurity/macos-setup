@@ -17,7 +17,12 @@ This MacOS setup project is to provide a generalized, standard, repeatable way o
    ```sh
    cd macos-setup
    ```
-3. Run the setup script to install Homebrew and the applicable brews/casks
+3. Create a `.env` file at the root of the project with the following format: 
+   ```sh
+   GIT_NAME="YOUR_GIT_NAME"
+   GIT_EMAIL="YOUR_GIT_EMAIL"
+   ```
+3. Run the setup script to install configure MacOS, install Homebrew and the applicable brews/casks, and configure Git globals
    ```
    ./setup.sh
    ```

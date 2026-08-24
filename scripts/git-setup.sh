@@ -3,14 +3,23 @@
 # Abort on non-zero exitstatus; Abort on unbound variable; Don't hide errors within pipes
 set -euo pipefail
 
-readonly GIT_NAME="deepdivesecurity"
-readonly GIT_EMAIL="165413290+deepdivesecurity@users.noreply.github.com"
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 source "$SCRIPT_DIR/progress.sh"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 TOTAL_SUBSTEPS=2
+
+confirm_env_available() {
+    if [[ -f "$PROJECT_DIR/.env" ]]; then
+        set -o allexport
+        source "$PROJECT_DIR/.env"
+        set +o allexport
+    else
+        return 1
+    fi
+}
+
+confirm_env_available
 
 # ----------------------------------------
 # Check Git
