@@ -8,7 +8,7 @@ This MacOS setup project is to provide a generalized, standard, repeatable way o
 ### Prerequisites
 - A Mac device with MacOS
 
-### Installation
+### Installation/Usage
 1. Clone the repo
    ```sh
    git clone https://github.com/deepdivesecurity/macos-setup.git
@@ -22,7 +22,11 @@ This MacOS setup project is to provide a generalized, standard, repeatable way o
    GIT_NAME="YOUR_GIT_NAME"
    GIT_EMAIL="YOUR_GIT_EMAIL"
    ```
-3. Run the setup script to install configure MacOS, install Homebrew and the applicable brews/casks, and configure Git globals
+4. You may need to change permissions on the scripts directory
+   ```sh
+   chmod -R +x scripts
+   ```
+5. Run the setup script to install configure MacOS, install Homebrew and the applicable brews/casks, and configure Git globals
    ```
    ./setup.sh
    ```
