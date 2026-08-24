@@ -24,7 +24,10 @@ enable_filevault() {
 # Enable Firewall
 # ----------------------------------------
 enable_firewall() {
-    firewall_state=$(/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate)
+    if ! firewall_state=$(/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate 2>&1); then
+        echo "Unable to determine firewall state..."
+        return 1
+    fi
     
     case "$firewall_state" in
         *"State = 1"* | *"State = 2"*)
