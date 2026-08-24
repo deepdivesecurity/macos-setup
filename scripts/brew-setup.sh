@@ -4,6 +4,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 source "$SCRIPT_DIR/progress.sh"
 
@@ -30,7 +31,7 @@ install_brew() {
 # Install Brew Apps
 # ----------------------------------------
 install_brew_apps() {
-    BREWFILE_PATH="$(cd "$SCRIPT_DIR/.." && pwd)/Brewfile"
+    BREWFILE_PATH="$PROJECT_DIR/Brewfile"
 
     if [ ! -f "$BREWFILE_PATH" ]; then
         echo "Error: File '$BREWFILE_PATH' does not exist."
