@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/scripts/progress.sh"
 
-TOTAL_STEPS=3
+TOTAL_STEPS=4
 CURRENT_STEP=0
 
 START_TIME=$(date +%s)
@@ -71,6 +71,7 @@ echo ""
 # Steps
 # ----------------------------------------
 run_step "Configuring MacOS" "macos-setup.sh"
+run_step "Configuring MacOS Security" "macos-security.sh"
 run_step "Configuring Brew" "brew-setup.sh"
 run_step "Configuring Git" "git-setup.sh"
 
