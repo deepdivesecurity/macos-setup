@@ -30,7 +30,7 @@ install_brew() {
 # Install Brew Apps
 # ----------------------------------------
 install_brew_apps() {
-    BREWFILE_PATH=$(pwd)/Brewfile
+    BREWFILE_PATH="$(cd "$SCRIPT_DIR/.." && pwd)/Brewfile"
 
     if [ ! -f "$BREWFILE_PATH" ]; then
         echo "Error: File '$BREWFILE_PATH' does not exist."
