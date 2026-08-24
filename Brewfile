@@ -3,8 +3,6 @@ tap "hashicorp/tap"
 brew "gh"
 # Distributed revision control system
 brew "git"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
 # Interpreted, interactive, object-oriented programming language
