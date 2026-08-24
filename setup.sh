@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Abort on non-zero exitstatus; Abort on unbound variable; Don't hide errors within pipes
+set -euo pipefail
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/scripts/progress.sh"
 
