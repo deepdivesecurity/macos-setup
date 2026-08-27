@@ -52,7 +52,8 @@ confirm_git_installed() {
 configure_git_username() {
     confirm_git_installed || return 1
 
-    if [ ! -z "$(git config --global user.name)" ]; then
+    if [ -z "$(git config --global user.name)" ]; then
+        echo "$GIT_NAME"
         git config --global user.name "$GIT_NAME"
     fi
 
@@ -65,7 +66,7 @@ configure_git_username() {
 configure_git_email() {
     confirm_git_installed || return 1
 
-    if [ ! -z "$(git config --global user.email)" ]; then
+    if [ -z "$(git config --global user.email)" ]; then
         git config --global user.email "$GIT_EMAIL"
     fi
 
