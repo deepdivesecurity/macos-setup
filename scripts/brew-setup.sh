@@ -19,6 +19,23 @@ install_brew() {
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
+    # Configure Homebrew environment for zsh
+    # local brew_bin zprofile shellenv_command
+    # brew_bin="$(command -v brew 2>/dev/null || true)"
+    # if [ -z "$brew_bin" ]; then
+    #     for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+    #         [ -x "$brew_bin" ] && break
+    #     done
+    # fi
+
+    # [ -x "$brew_bin" ] || return 1
+
+    # zprofile="${ZDOTDIR:-$HOME}/.zprofile"
+    # shellenv_command="eval \"\$($brew_bin shellenv zsh)\""
+    # touch "$zprofile"
+    # grep -Fqx "$shellenv_command" "$zprofile" || printf '%s\n' "$shellenv_command" >> "$zprofile"
+    # eval "$("$brew_bin" shellenv zsh)"
+
     # Validate that Homebrew was installed
     if ! command -v brew >/dev/null 2>&1; then
         return 1
