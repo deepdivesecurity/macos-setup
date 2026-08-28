@@ -19,6 +19,12 @@ install_brew() {
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
+    # Derived from ################
+    # echo >> /Users/USERNAME/.zprofile
+    # echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' >> /Users/USERNAME/.zprofile
+    # eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+    #########################
+
     # Configure Homebrew environment for zsh
     # local brew_bin zprofile shellenv_command
     # brew_bin="$(command -v brew 2>/dev/null || true)"
