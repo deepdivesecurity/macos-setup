@@ -21,8 +21,6 @@ cask "docker-desktop"
 cask "keepassxc"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
 # Open-source code editor
 cask "visual-studio-code"
 vscode "dbaeumer.vscode-eslint"
