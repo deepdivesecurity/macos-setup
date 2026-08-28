@@ -13,9 +13,17 @@ TOTAL_SUBSTEPS=2
 # Finder
 # ----------------------------------------
 configure_finder() {
+    # Use list view as default
     defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" || return 1
+    # Show all files
     defaults write com.apple.finder AppleShowAllFiles -bool "true" || return 1
+    # Show all filename extensions
     defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" || return 1
+    # Enable Three-finger drag
+    defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -bool "true" || return 1
+    # Enable Tap to click
+    defaults write com.apple.AppleMultitouchTrackpad Clicking -bool "true" || return 1
+    defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1 || return 1
 
     return 0
 }
