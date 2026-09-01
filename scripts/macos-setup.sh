@@ -24,6 +24,8 @@ configure_finder() {
     # Enable Tap to click
     defaults write com.apple.AppleMultitouchTrackpad Clicking -bool "true" || return 1
     defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1 || return 1
+    # Enable dark icon and widget style
+    defaults write -g AppleIconAppearanceTheme -string "RegularDark" || return 1
 
     return 0
 }
