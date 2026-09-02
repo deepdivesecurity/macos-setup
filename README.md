@@ -35,6 +35,7 @@ See the [open issues](https://github.com/deepdivesecurity/macos-setup/issues) fo
 
 ## Additional Documentation/Resources
 - [Homebrew](https://brew.sh/)
+- [Brave Policies](https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy)
 
 ## License
 All Rights Reserved.
