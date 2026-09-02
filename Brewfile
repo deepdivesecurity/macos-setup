@@ -15,12 +15,12 @@ brew "hashicorp/tap/terraform", trusted: true
 cask "appcleaner"
 # Web browser focusing on privacy
 cask "brave-browser"
-# App to build and share containerised applications and microservices
-cask "docker-desktop"
 # Password manager app
 cask "keepassxc"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Open-source code editor
 cask "visual-studio-code"
 vscode "dbaeumer.vscode-eslint"
