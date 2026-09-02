@@ -7,7 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$SCRIPT_DIR/progress.sh"
 
-TOTAL_SUBSTEPS=2
+TOTAL_SUBSTEPS=3
 
 # ----------------------------------------
 # Finder
@@ -31,13 +31,35 @@ configure_finder() {
 }
 
 # ----------------------------------------
+# Dock
+# ----------------------------------------
+configure_dock() {
+    # Remove all existing persistent apps from the Dock
+    defaults delete com.apple.dock persistent-apps 2>/dev/null || true
+
+    # Add desired applications to the Dock
+    defaults write com.apple.dock persistent-apps -array \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Apps.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Brave%20Browser.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Visual%20Studio%20Code.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Utilities/Terminal.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Mail.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Calendar.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Notes.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Utilities/Screenshot.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/App%20Store.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
+    '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/System%20Settings.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' 
+}
+
+# ----------------------------------------
 # Apply Changes
 # ----------------------------------------
 apply_changes() {
     killall Finder 2>/dev/null || true
-
+    killall Dock 2>/dev/null || true
     return 0
 }
 
 run_substep 1 "$TOTAL_SUBSTEPS" "Configuring Finder..." configure_finder
-run_substep 2 "$TOTAL_SUBSTEPS" "Applying Changes..." apply_changes
+run_substep 2 "$TOTAL_SUBSTEPS" "Configuring Dock..." configure_dock
+run_substep 3 "$TOTAL_SUBSTEPS" "Applying Changes..." apply_changes

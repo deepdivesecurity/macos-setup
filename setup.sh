@@ -74,10 +74,10 @@ echo ""
 # ----------------------------------------
 # Steps
 # ----------------------------------------
-run_step "Configuring MacOS" "macos-setup.sh"
-run_step "Configuring MacOS Security" "macos-security.sh"
 run_step "Configuring Brew" "brew-setup.sh"
 run_step "Configuring Git" "git-setup.sh"
+run_step "Configuring MacOS" "macos-setup.sh"
+run_step "Configuring MacOS Security" "macos-security.sh"
 
 # ----------------------------------------
 # Complete
