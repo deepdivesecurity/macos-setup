@@ -49,7 +49,15 @@ configure_dock() {
     '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/Utilities/Screenshot.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
     '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/App%20Store.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' \
     '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///System/Applications/System%20Settings.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>' 
+
+    return 0
 }
+
+# configure_screensaver() {
+#     defaults write com.apple.screensaver askForPassword -int 1 || return 1
+#     defaults write com.apple.screensaver askForPasswordDelay -int 0 || return 1
+#     return 0
+# }
 
 # ----------------------------------------
 # Apply Changes
@@ -62,4 +70,5 @@ apply_changes() {
 
 run_substep 1 "$TOTAL_SUBSTEPS" "Configuring Finder..." configure_finder
 run_substep 2 "$TOTAL_SUBSTEPS" "Configuring Dock..." configure_dock
+#run_substep 3 "$TOTAL_SUBSTEPS" "Configuring Screensaver..." configure_screensaver
 run_substep 3 "$TOTAL_SUBSTEPS" "Applying Changes..." apply_changes
