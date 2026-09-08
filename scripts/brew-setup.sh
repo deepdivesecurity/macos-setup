@@ -66,5 +66,19 @@ install_brew_apps() {
     return 0
 }
 
+# ----------------------------------------
+# Configure NVM
+# ----------------------------------------
+# configure_nvm() {
+#     mkdir ~/.nvm
+
+#     # TODO: Add this to ~/.zshrc
+#     export NVM_DIR="$HOME/.nvm"
+#     [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+#     [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+#     nvm install --lts
+# }
+
 run_substep 1 "$TOTAL_SUBSTEPS" "Installing Homebrew" install_brew
 run_substep 2 "$TOTAL_SUBSTEPS" "Installing Homebrew Apps" install_brew_apps
