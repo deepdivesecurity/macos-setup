@@ -26,7 +26,7 @@ read_env() {
 
         # Validate that the line matches a standard KEY=VALUE format
         if [[ "$line" =~ ^[a-zA-Z_][a-zA-Z0-9_]*= ]]; then
-            export "$line"
+            export "${line?}"
         fi
     done < "$ENV_FILE"
 

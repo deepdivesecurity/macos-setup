@@ -29,12 +29,12 @@ enable_filevault() {
 # ----------------------------------------
 # Enable Firewall
 # ----------------------------------------
-enable_firewall() {  
+enable_firewall() {
     # Check if the firewall is enabled and if not, enable it
     if ! firewall_state=$(/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate 2>&1); then
         return 1
     fi
-    
+
     case "$firewall_state" in
         *"State = 1"* | *"State = 2"*)
             :
@@ -64,12 +64,12 @@ enable_firewall() {
 # ----------------------------------------
 # Enable Firewall Stealth Mode
 # ----------------------------------------
-enable_firewall_stealth_mode() {  
+enable_firewall_stealth_mode() {
     # Check if the firewall stealth mode is enabled
     if ! stealth_mode_state=$(/usr/libexec/ApplicationFirewall/socketfilterfw --getstealthmode 2>&1); then
         return 1
     fi
-    
+
     if [ ! "$stealth_mode_state" = "Firewall stealth mode is on" ]; then
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
     fi
