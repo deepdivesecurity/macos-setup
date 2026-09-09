@@ -1,22 +1,12 @@
 tap "hashicorp/tap"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
-# Prevent cloud misconfigurations during build-time for IaC tools
-brew "checkov"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
 brew "git"
-# Manage multiple Node.js versions
-brew "nvm"
-# Framework for managing multi-language pre-commit hooks
-brew "pre-commit"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
-# Terraform
-brew "hashicorp/tap/terraform", trusted: true
 # Application uninstaller
 cask "appcleaner"
 # Web browser focusing on privacy
