@@ -36,4 +36,24 @@ get_os() {
             fi
             ;;
     esac
+
+    return 0
+}
+
+upgrade_mise() {
+    mise upgrade || return 1
+
+    return 0
+}
+
+upgrade_uv_tools() {
+    uv tool upgrade --all || return 1
+
+    return 0
+}
+
+update_and_upgrade_brew() {
+    brew update && brew upgrade -y && brew cleanup || return 1
+
+    return 0
 }
