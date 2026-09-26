@@ -1,15 +1,15 @@
 repos:
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.24.2
+    rev: 6eaad039603a4de39fddd1cf5f727391efe9974e # v8.30.0
     hooks:
       - id: gitleaks
   -   repo: https://github.com/shellcheck-py/shellcheck-py
-      rev: v0.11.0.1-1
+      rev: a6564f5d57444e123433a5c9af733e3975c77229 # v0.11.0.1-1
       hooks:
       -   id: shellcheck
           args: [--severity=warning]
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # v6.0.0
     hooks:
     - id: end-of-file-fixer
     - id: trailing-whitespace
