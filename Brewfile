@@ -1,10 +1,13 @@
-tap "hashicorp/tap"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
 brew "git"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Application uninstaller
@@ -44,5 +47,9 @@ vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.cpptools-themes"
 vscode "njpwerner.autodocstring"
 vscode "openai.chatgpt"
+vscode "openai.codex-audio"
 vscode "redhat.vscode-yaml"
 vscode "sonarsource.sonarlint-vscode"
+vscode "vstirbu.vscode-mermaid-preview"
+uv "checkov"
+uv "pre-commit"
