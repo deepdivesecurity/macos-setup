@@ -10,6 +10,8 @@ brew "mise"
 brew "pinentry-mac"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Tools for building Android applications
+cask "android-studio"
 # Application uninstaller
 cask "appcleaner"
 # Web browser focusing on privacy
@@ -51,5 +53,3 @@ vscode "openai.codex-audio"
 vscode "redhat.vscode-yaml"
 vscode "sonarsource.sonarlint-vscode"
 vscode "vstirbu.vscode-mermaid-preview"
-uv "checkov"
-uv "pre-commit"
