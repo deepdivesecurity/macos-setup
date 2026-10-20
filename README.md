@@ -30,6 +30,8 @@ This MacOS setup project is to provide a generalized, standard, repeatable way o
 ## Roadmap
 
 - [ ] Add an open box Mac report that checks for issues like number of cycles, battery level, etc.
+- [ ] Finish testing suite
+- [ ] Improve script compatibility & provide defaults as CLI options if desired (script.sh asks if you want to enable everything or if you want to select options)
 
 See the [open issues](https://github.com/deepdivesecurity/macos-setup/issues) for a complete list of proposed features and known issues.
 
