@@ -34,6 +34,8 @@ configure_finder() {
 # Dock
 # ----------------------------------------
 configure_dock() {
+    defaults write com.apple.dock show-recents -bool false
+
     # Remove all existing persistent apps from the Dock
     defaults delete com.apple.dock persistent-apps 2>/dev/null || true
 
