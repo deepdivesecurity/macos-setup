@@ -8,8 +8,6 @@ brew "gnupg"
 brew "mise"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
-# Extremely fast Python package installer and resolver, written in Rust
-brew "uv"
 # Tools for building Android applications
 cask "android-studio"
 # Application uninstaller
