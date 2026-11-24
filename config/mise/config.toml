@@ -1,6 +1,5 @@
 [tools]
 node = "26"
-ollama = "0.40.17"
 opencode = "2.4.1"
 python = "3.15"
 terraform = "1.17"

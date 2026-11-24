@@ -18,6 +18,8 @@ cask "brave-browser"
 cask "keepassxc"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
+# Get up and running with large language models locally
+cask "ollama-app"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Open-source code editor
